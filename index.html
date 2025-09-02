@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en" data-theme="classic">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>QR Code Generator</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <div class="wrap">
+        <h1>QR Code Generator</h1>
+
+        <div class="panel">
+            <div class="grid">
+                <div class="card">
+                    <label><b>Theme</b></label>
+                    <select id="theme" style="margin-top:6px">
+                        <option value="classic" selected>Classic Dark</option>
+                        <option value="neon">Neon Glow</option>
+                        <option value="glass">Glassmorphism</option>
+                        <option value="mono">Minimal Mono</option>
+                    </select>
+                </div>
+
+                <div class="card">
+                    <label><b>Content type</b></label>
+                    <select id="mode" style="margin-top:6px">
+                        <option value="text" selected>Text / URL</option>
+                        <option value="email">Email</option>
+                    </select>
+                </div>
+
+                <div class="card" id="dyn1" style="grid-column:1/-1"></div>
+
+                <div class="card">
+                    <label>Size: <span id="sizeVal">320</span> px</label>
+                    <input id="size" type="range" min="128" max="1024" step="16" value="320" />
+                </div>
+                <div class="card">
+                    <label for="margin">Margin</label>
+                    <input id="margin" type="range" min="0" max="20" value="4" />
+                </div>
+                <div class="card">
+                    <label for="dark">Modules</label>
+                    <input id="dark" type="color" value="#ffffff" />
+                </div>
+                <div class="card">
+                    <label for="light">Background</label>
+                    <input id="light" type="color" value="#000000" />
+                </div>
+                <div class="card">
+                    <label for="shape">Dot shape</label>
+                    <select id="shape">
+                        <option value="square">Square</option>
+                        <option value="dots">Dots</option>
+                        <option value="rounded">Rounded</option>
+                        <option value="classy">Classy</option>
+                        <option value="classy-rounded">Classy Rounded</option>
+                        <option value="extra-rounded">Extra Rounded</option>
+                    </select>
+                </div>
+                <div class="card">
+                    <label for="corners">Finder corners</label>
+                    <select id="corners">
+                        <option value="square">Square</option>
+                        <option value="dot">Dot</option>
+                        <option value="extra-rounded">Extra Rounded</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="btns" style="margin-top:12px">
+                <button id="invert" class="btn-blue">Invert</button>
+                <button id="generate" class="btn-cyan">Generate</button>
+            </div>
+            <p id="contrastMsg" class="hint" style="display:none"></p>
+        </div>
+
+        <div class="split">
+            <div class="panel qr" id="qrArea" aria-live="polite">QR will appear here…</div>
+            <div class="panel">
+                <div class="btns">
+                    <button id="downloadPng" class="btn-lime">Download PNG</button>
+                    <button id="downloadSvg" class="btn-cyan">Download SVG</button>
+                    <button id="copyPng" class="btn-blue">Copy Image</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/qr-code-styling@1.6.0/lib/qr-code-styling.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
